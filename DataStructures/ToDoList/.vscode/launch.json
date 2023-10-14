@@ -9,10 +9,11 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/01_Introduction/VerifyAge/VerifyAge/bin/Debug/net6.0/VerifyAge.dll",
+            "program": "${workspaceFolder}/bin/Debug/net7.0/ToDoList.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/01_Introduction/VerifyAge/VerifyAge",
-            "console": "internalConsole",
+            "cwd": "${workspaceFolder}",
+            "console": "externalTerminal",
+            "terminal.external.linuxExec": "konsole",
             "stopAtEntry": false
         },
         {
