@@ -1,5 +1,6 @@
 ﻿int auswahl = 1;
 Random rand = new Random();
+int gesamt = 0, richtig = 0;
 while (auswahl != 0)
 {
     System.Console.WriteLine("Dieses Programm trainiert die Grundrechenarten.");
@@ -28,9 +29,11 @@ while (auswahl != 0)
         ergebnis = zahl1 / zahl2;
     }
     int eingabe = Convert.ToInt32(System.Console.ReadLine());
+    gesamt++;
     if(eingabe == ergebnis)
     {
         System.Console.WriteLine("Richtig!");
+        richtig++;
     }
     else
     {
@@ -39,3 +42,4 @@ while (auswahl != 0)
     System.Console.WriteLine("Nochmal? (1 = Ja, 0 = Nein)");
     auswahl = Convert.ToInt32(System.Console.ReadLine());
 }
+System.Console.WriteLine("Sie haben " + richtig + " von " + gesamt + " Aufgaben richtig gelöst.");
