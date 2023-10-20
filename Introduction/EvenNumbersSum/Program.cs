@@ -18,3 +18,4 @@ for (int i = 1; i <= zahl; i++)
     }
 }
 System.Console.WriteLine("Summe: {0}", summe);
+Console.ReadKey();

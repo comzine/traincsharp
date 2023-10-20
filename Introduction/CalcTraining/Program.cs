@@ -43,3 +43,4 @@ while (auswahl != 0)
     auswahl = Convert.ToInt32(System.Console.ReadLine());
 }
 System.Console.WriteLine("Sie haben " + richtig + " von " + gesamt + " Aufgaben richtig gelöst.");
+Console.ReadKey();

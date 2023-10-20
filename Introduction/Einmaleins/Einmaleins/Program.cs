@@ -10,3 +10,4 @@ for (int j = 1; j <= maxZahl; j++)
     }
     Console.WriteLine();
 }
+Console.ReadKey();

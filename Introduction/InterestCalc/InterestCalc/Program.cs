@@ -43,3 +43,4 @@ for (jahr = 2; jahr <= zuBerechnendeJahre; jahr++)
     Console.WriteLine("{0,4}\t{1,8:F2}\t{2,8:F2}",
         jahr, zinsen, kapitalneu);
 }
+Console.ReadKey();
