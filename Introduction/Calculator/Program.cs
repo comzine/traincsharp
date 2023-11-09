@@ -39,7 +39,14 @@ do
             break;
         case 3:
             System.Console.WriteLine("Input second number: ");
-            secondNumber = Convert.ToDouble(Console.ReadLine());
+            try
+            {
+                secondNumber = Convert.ToDouble(Console.ReadLine());
+            }
+            catch (System.Exception e)
+            {
+                System.Console.WriteLine("Invalid number");
+            }
             break;
         case 4:
             switch (op)
