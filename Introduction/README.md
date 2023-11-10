@@ -18,6 +18,7 @@
 
 ## For the fast ones
 
+- BlackFridayDate
 - ShepherdRiddle
 
 ## External resources
