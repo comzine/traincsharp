@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradeConvert", "GradeConver
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTypeAnalyzer", "FileTypeAnalyzer\FileTypeAnalyzer.csproj", "{C2193B8C-4691-4D02-AC00-8E02D3698386}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShepherdRiddle", "ShepherdRiddle\ShepherdRiddle.csproj", "{857EF55B-1449-4157-A528-7B58B26391A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{C2193B8C-4691-4D02-AC00-8E02D3698386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2193B8C-4691-4D02-AC00-8E02D3698386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2193B8C-4691-4D02-AC00-8E02D3698386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{857EF55B-1449-4157-A528-7B58B26391A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{857EF55B-1449-4157-A528-7B58B26391A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{857EF55B-1449-4157-A528-7B58B26391A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{857EF55B-1449-4157-A528-7B58B26391A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

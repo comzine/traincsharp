@@ -14,6 +14,9 @@
 - FileTypeAnalyzer
 - Calculator
 
+## For the fast ones
+
+- ShepherdRiddle
 
 ## External resources
 
