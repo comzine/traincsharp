@@ -10,7 +10,10 @@
 - CalcTraining
 - TempConvert
 - CurrencyConvert
-- GradeClassification
+- GradeConvert
+- FileTypeAnalyzer
+- Calculator
+
 
 ## External resources
 
