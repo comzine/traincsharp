@@ -3,6 +3,7 @@
 ## Training Projects in following order
 
 - VerifyAge
+- EasterCalculator
 - InterestCalc
 - EvenNumbersSum
 - Einmaleins
@@ -13,6 +14,7 @@
 - GradeConvert
 - FileTypeAnalyzer
 - Calculator
+- DateChecker
 
 ## For the fast ones
 
