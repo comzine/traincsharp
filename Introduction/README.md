@@ -2,7 +2,7 @@
 
 ## Training Projects in following order
 
-- VerifyAge
+- VerifyAge (`if`-condition)
 - EasterCalculator
 - InterestCalc
 - EvenNumbersSum
