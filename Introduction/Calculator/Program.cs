@@ -3,10 +3,8 @@ double firstNumber = 0, secondNumber = 0, result = 0;
 int choice = 0;
 string op = "";
 
-
 do
 {
-
     Console.WriteLine("Calculator");
     System.Console.WriteLine("1. Input first number");
     System.Console.WriteLine("2. Input operator");
@@ -19,15 +17,11 @@ do
     switch (choice)
     {
         case 1:
+            do
+            {
             System.Console.WriteLine("Input first number: ");
-            try
-            {
-                firstNumber = Convert.ToDouble(Console.ReadLine());
-            }
-            catch (System.Exception e)
-            {
-                System.Console.WriteLine("Invalid number");
-            }
+            } 
+            while (double.TryParse(Console.ReadLine(), out firstNumber) == false);
             break;
         case 2:
             System.Console.WriteLine("Input operator: ");
@@ -61,6 +55,11 @@ do
                     result = firstNumber * secondNumber;
                     break;
                 case "/":
+                    if (secondNumber == 0.0)
+                    {
+                        System.Console.WriteLine("Divide by zero");
+                        break;
+                    }
                     result = firstNumber / secondNumber;
                     break;
                 default:
