@@ -16,6 +16,7 @@
 - Calculator
 - DateChecker
 - DigitSum (`string`)
+- ConvertStringToInt (`string`)
 
 ## For the fast ones
 
