@@ -17,6 +17,7 @@
 - DateChecker
 - DigitSum (`string`)
 - ConvertStringToInt (`string`)
+- IntFactorization (appending `string`)
 
 ## For the fast ones
 
