@@ -1,34 +1,22 @@
-﻿Console.WriteLine("Bitte geben Sie eine Zahl ein: ");
-string input = Console.ReadLine();
-
-// Überprüfen, ob die Eingabe nur aus Ziffern besteht
-bool isNumeric = true;
-for (int i = 0; i < input.Length; i++)
-{
-    if (!char.IsDigit(input[i]))
-    {
-        isNumeric = false;
-        break;
-    }
-}
-
-
-if (!isNumeric)
-{
-    Console.WriteLine("Ungültige Eingabe. Bitte geben Sie nur Zahlen ein.");
-    return;
-}
-
+﻿string input;
 int sum = 0;
 
-// Durchlaufen jedes Zeichens im String
+Console.WriteLine("Quersumme berechnen");
+Console.WriteLine("Bitte geben Sie eine Zahl ein:");
+input = Console.ReadLine();
+
 for (int i = 0; i < input.Length; i++)
 {
-    // Konvertieren des Zeichens in eine Zahl
-    int digit = int.Parse(input[i].ToString());
-    // Addieren der Zahl zur Summe
-    sum += digit;
+    if (input[i] >= '0' && input[i] <= '9')
+    {
+        sum += input[i] - '0';
+    }
+    else
+    {
+        Console.WriteLine("Fehler: Ungültige Eingabe!");
+        Console.ReadKey();
+        return;
+    }
 }
-
-Console.WriteLine($"Die Quersumme von {input} ist: {sum}");
+Console.WriteLine("Die Quersumme von {0} ist {1}", input, sum);
 Console.ReadKey();
