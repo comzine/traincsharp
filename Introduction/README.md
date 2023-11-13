@@ -15,6 +15,7 @@
 - FileTypeAnalyzer
 - Calculator
 - DateChecker
+- DigitSum (`string`)
 
 ## For the fast ones
 
