@@ -11,6 +11,7 @@
 - CalcTraining
 - TempConvert
 - CurrencyConvert
+- CheckPrime
 - GradeConvert
 - FileTypeAnalyzer
 - Calculator
