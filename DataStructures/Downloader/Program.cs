@@ -6,6 +6,7 @@ namespace Downloader
     {
         static async Task Main(string[] args)
         {
+            Console.WriteLine("Starting downloads...");
             Downloader downloader = new Downloader();
             List<Action> actions = new List<Action> {
                 () => downloader.DownloadFile("http://www.google.com"),
@@ -33,6 +34,7 @@ namespace Downloader
             }
 
             Console.WriteLine("All downloads completed.");
+            Console.ReadKey();
         }
     }
 }
