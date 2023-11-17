@@ -3,8 +3,8 @@ int number;
 
 System.Console.WriteLine("Please enter a number:");
 input = System.Console.ReadLine();
-if (int.TryParse(input, out number))
-{
+try {
+    number = Convert.ToInt32(input);
     if (number < 2)
     {
         System.Console.WriteLine("The number is not prime.");
@@ -30,7 +30,7 @@ if (int.TryParse(input, out number))
         }
     }
 }
-else
+catch (FormatException)
 {
     System.Console.WriteLine("The input is not a number.");
 }

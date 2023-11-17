@@ -29,6 +29,6 @@ The number is not prime.
 
 ## Hinweise
 
-- Verwenden Sie `int.TryParse` zur Validierung der Eingabe und zur Konvertierung des Strings in eine Zahl.
+- Verwenden Sie `try-catch` und `Convert.ToInt32` zur Validierung der Eingabe und zur Konvertierung des Strings in eine Zahl.
 - Nutzen Sie eine Schleife und bedingte Anweisungen, um zu überprüfen, ob die Zahl eine Primzahl ist.
 - Beachten Sie, dass Zahlen kleiner als 2 nicht als Primzahlen gelten.
