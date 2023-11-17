@@ -17,8 +17,10 @@
 - Calculator
 - DateChecker
 - DigitSum (`string`)
+- StringReverse (`string`)
 - ConvertStringToInt (`string`)
 - IntFactorization (appending `string`)
+- IpChecker (`string`)
 
 ## For the fast ones
 
