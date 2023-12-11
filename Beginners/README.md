@@ -32,6 +32,13 @@
 ### Free
 
 - [Microsoft C# Training (Beginner)](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-1/)
+- [W3Schools C# Tutorial](https://w3schools.com/cs/)
+- [C# Tutorial tutorialspoint.com](https://tutorialspoint.com/csharp/index.htm)
+- [C# Tutorial tutlane.com](https://www.tutlane.com/tutorial/csharp)
+- [C# Tutorial guru99.com](https://guru99.com/c-sharp-tutorial.html)
+- [C# Tutorial javatpoint.com](https://javatpoint.com/c-sharp-tutorial)
+- [C# Tutorial tutorialsteacher.com](https://tutorialsteacher.com/csharp/csharp-tutorials)
+
 
 ### Not free
 
