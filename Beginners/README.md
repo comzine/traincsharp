@@ -21,6 +21,9 @@
 - ConvertStringToInt (`string`)
 - IntFactorization (appending `string`)
 - IpChecker (`string`)
+- IpAddress (`array`)
+- IntFactorizationMethod (`method`, `array`)
+- GreatestCommonDivisor (`method`)
 
 ## For the fast ones
 
