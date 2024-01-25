@@ -1,3 +1,6 @@
+using ScottPlot;
+using ScottPlot.Plottables;
+using Color = System.Drawing.Color;
 public class Datapoint
 {
     public double[] Features { get; set; }
@@ -41,5 +44,41 @@ public class Datapoint
     public override string ToString()
     {
         return $"{string.Join(",", Features)}: {Label}";
+    }
+    public static void PlotData(Datapoint[] Datapoints, string filePath, int width = 800, int height = 600)
+    {
+        Plot myPlot = new();
+        ScottPlot.Colormaps.Tempo possibleColors = new();
+        MarkerShape[] possibleShapes = Enum.GetValues(typeof(MarkerShape)).Cast<MarkerShape>().ToArray();
+
+        String[] labels = Datapoints.Select(d => d.Label).Distinct().ToArray();
+        ScottPlot.Color[] colors = new ScottPlot.Color[labels.Length];
+        MarkerShape[] shapes = new MarkerShape[labels.Length];
+
+        Random rand = new();
+
+
+        for (int i = 0; i < colors.Length; i++)
+        {
+            colors[i] = possibleColors.GetColor(rand.NextDouble());
+            shapes[i] = possibleShapes[(i + 1) % possibleShapes.Length];
+        }
+        for (int i = 0; i < labels.Length; i++)
+        {
+            var datapoints = Datapoints.Where(d => d.Label == labels[i]);
+            double[] x = datapoints.Select(d => d.Features[0]).ToArray();
+            double[] y = datapoints.Select(d => d.Features[1]).ToArray();
+            Marker marker = null;
+            for (int j = 0; j < x.Length; j++)
+            {
+                marker = myPlot.Add.Marker(x[j], y[j], shapes[i], size: 8, color: colors[i]);
+            }
+            if (marker != null)
+            {
+                marker.Label = labels[i];
+            }
+        }
+        myPlot.ShowLegend(Alignment.UpperRight);
+        myPlot.SavePng(filePath, width, height);
     }
 }
