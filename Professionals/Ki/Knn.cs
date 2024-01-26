@@ -3,11 +3,11 @@ public class Knn
   public Dataset Dataset { get; set; }
   public int K { get; set; }
 
-  public Knn(string filePath, int k)
+  public Knn(string filePath, int k, bool shallNormalize = true)
   {
-    Dataset = new Dataset();
+    Dataset = new Dataset(shallNormalize);
     Dataset.Load(filePath);
-    Dataset.Normalize();
+    Dataset.NormalizeIfRequired();
     K = k;
   }
 
@@ -18,7 +18,7 @@ public class Knn
   }
   public string Classify(Datapoint datapoint)
   {
-    Dataset.Normalize(datapoint);
+    Dataset.NormalizeIfRequired(datapoint);
     var distances = new List<Tuple<double, string>>();
     foreach (var other in Dataset.Datapoints)
     {

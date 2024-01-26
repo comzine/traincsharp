@@ -3,10 +3,13 @@ public class Dataset
 {
   public List<Datapoint> Datapoints { get; set; }
 
-  public Dataset()
+  public bool ShallNormalize { get; }
+  public Dataset(bool shallNormalize)
   {
     Datapoints = new List<Datapoint>();
+    ShallNormalize = shallNormalize;
   }
+
   public void Load(string filePath)
   {
     using (var reader = new StreamReader(filePath))
@@ -14,29 +17,73 @@ public class Dataset
       while (!reader.EndOfStream)
       {
         var line = reader.ReadLine();
-        var values = line.Split(';');
-        var datapoint = new Datapoint(values.Take(values.Length - 1).Select(double.Parse).ToArray(), values.Last());
-        Add(datapoint);
+        if (line != null)
+        {
+          var values = line.Split(';');
+          if (values.Length < 2)
+          {
+            values = line.Split(',');
+          }
+          var datapoint = new Datapoint(values.Take(values.Length - 1).Select(double.Parse).ToArray(), values.Last());
+          Datapoints.Add(datapoint);
+        }
       }
     }
   }
-  public void Add(Datapoint datapoint)
+  public void NormalizeIfRequired(Datapoint? datapoint = null)
   {
-    Datapoints.Add(datapoint);
-  }
-  public void Normalize(Datapoint datapoint = null)
-  {
-    var minimum = CalcMin(this);
-    var maximum = CalcMax(this);
-    if (datapoint != null)
+    if (!ShallNormalize)
     {
-      datapoint.Normalize(minimum, maximum);
+      if (datapoint != null)
+      {
+        datapoint.NormalizedFeatures = datapoint.Features;
+      }
+      else
+      {
+        foreach (var dp in Datapoints)
+        {
+          dp.NormalizedFeatures = dp.Features;
+        }
+      }
     }
     else
     {
-      foreach (var dp in Datapoints)
+      var minimum = CalcMin(this);
+      var maximum = CalcMax(this);
+      if (datapoint != null)
       {
-        dp.Normalize(minimum, maximum);
+        datapoint.Normalize(minimum, maximum);
+      }
+      else
+      {
+        foreach (var dp in Datapoints)
+        {
+          dp.Normalize(minimum, maximum);
+        }
+      }
+    }
+  }
+
+  public void UndoNormalization(Datapoint[] datapoints)
+  {
+    if (ShallNormalize)
+    {
+      var minimum = CalcMin(this);
+      var maximum = CalcMax(this);
+      foreach (var datapoint in datapoints)
+      {
+        datapoint.Features = new double[datapoint.NormalizedFeatures.Length];
+        for (int i = 0; i < datapoint.NormalizedFeatures.Length; i++)
+        {
+          datapoint.Features[i] = datapoint.NormalizedFeatures[i] * (maximum.Features[i] - minimum.Features[i]) + minimum.Features[i];
+        }
+      }
+    }
+    else
+    {
+      foreach (var datapoint in datapoints)
+      {
+        datapoint.Features = datapoint.NormalizedFeatures;
       }
     }
   }

@@ -1,6 +1,5 @@
 using ScottPlot;
 using ScottPlot.Plottables;
-using Color = System.Drawing.Color;
 public class Datapoint
 {
     public double[] Features { get; set; }
@@ -10,11 +9,11 @@ public class Datapoint
     {
         Features = features;
         Label = label;
+        NormalizedFeatures = new double[Features.Length];
     }
 
     public void Normalize(Datapoint minimums, Datapoint maximums)
     {
-        NormalizedFeatures = new double[Features.Length];
         for (int i = 0; i < Features.Length; i++)
         {
             NormalizedFeatures[i] = (Features[i] - minimums.Features[i]) / (maximums.Features[i] - minimums.Features[i]);
@@ -51,12 +50,11 @@ public class Datapoint
         ScottPlot.Colormaps.Tempo possibleColors = new();
         MarkerShape[] possibleShapes = Enum.GetValues(typeof(MarkerShape)).Cast<MarkerShape>().ToArray();
 
-        String[] labels = Datapoints.Select(d => d.Label).Distinct().ToArray();
-        ScottPlot.Color[] colors = new ScottPlot.Color[labels.Length];
+        string[] labels = Datapoints.Select(d => d.Label).Distinct().ToArray();
+        Color[] colors = new Color[labels.Length];
         MarkerShape[] shapes = new MarkerShape[labels.Length];
 
         Random rand = new();
-
 
         for (int i = 0; i < colors.Length; i++)
         {

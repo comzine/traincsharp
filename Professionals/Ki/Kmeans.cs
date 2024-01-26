@@ -3,12 +3,14 @@ public class Kmeans
     public Dataset Dataset { get; set; }
     public int K { get; set; }
     public Datapoint[] Centroids { get; set; }
+    private double tolerance = 0.001;
+    private int max_iterations = 1000;
 
-    public Kmeans(string filePath, int k)
+    public Kmeans(string filePath, int k, bool shallNormalize = true, double tolerance = 0.001, int max_iterations = 1000)
     {
-        Dataset = new Dataset();
+        Dataset = new Dataset(shallNormalize);
         Dataset.Load(filePath);
-        Dataset.Normalize();
+        Dataset.NormalizeIfRequired();
         Centroids = new Datapoint[k];
         for (int i = 0; i < k; i++)
         {
@@ -16,6 +18,8 @@ public class Kmeans
             Centroids[i].Label = $"{i}";
         }
         K = k;
+        this.tolerance = tolerance;
+        this.max_iterations = max_iterations;
     }
 
     public void LabelizeDatapoints()
@@ -32,8 +36,9 @@ public class Kmeans
         }
     }
 
-    public void CalculateCentroids()
+    public double CalculateCentroids()
     {
+        double sumOfCentroidMovedDistances = 0;
         for (int i = 0; i < K; i++)
         {
             var datapoints = Dataset.Datapoints.Where(d => d.Label == $"{i}");
@@ -49,36 +54,32 @@ public class Kmeans
             {
                 averages[j] /= datapoints.Count();
             }
+            var Averages = new Datapoint(averages, "");
+            Dataset.NormalizeIfRequired(Averages);
+            sumOfCentroidMovedDistances += Centroids[i].NormalizedDistanceTo(Averages);
             Centroids[i].NormalizedFeatures = averages;
         }
+        return sumOfCentroidMovedDistances;
     }
 
-    public void Cluster()
+    public int Cluster()
     {
-        while (!HasConverged())
+        int iterations = 0;
+        double sumOfCentroidMovedDistances = double.MaxValue;
+        while (sumOfCentroidMovedDistances > tolerance && iterations < max_iterations)
         {
             LabelizeDatapoints();
+            sumOfCentroidMovedDistances = CalculateCentroids();
+            iterations++;
         }
+        Dataset.UndoNormalization(Centroids);
+        return iterations;
     }
 
-    public bool HasConverged()
-    {
-        var oldCentroids = Centroids;
-        CalculateCentroids();
-        var newCentroids = Centroids;
-        for (int i = 0; i < K; i++)
-        {
-            if (oldCentroids[i].NormalizedDistanceTo(newCentroids[i]) > 0.001)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
 
     public string Classify(Datapoint datapoint)
     {
-        Dataset.Normalize(datapoint);
+        Dataset.NormalizeIfRequired(datapoint);
         var distances = new List<Tuple<double, int>>();
         for (int i = 0; i < K; i++)
         {
