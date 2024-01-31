@@ -1,0 +1,13 @@
+Decision,Augen,Mund
+beisst,ein,lachen
+beisst,x,lachen
+beisst,zu,lachen
+beisst,x,offen
+beisst nicht,offen,zahn
+beisst nicht,ein,zahn
+beisst nicht,zu,zahn
+beisst nicht,offen,traurig
+beisst nicht,zu,traurig
+beisst nicht,ein,offen
+beisst nicht,offen,zunge
+beisst nicht,ein,zunge
