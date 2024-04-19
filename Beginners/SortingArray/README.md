@@ -28,3 +28,6 @@ Das Ziel dieser Übung ist es, ein Konsolenprogramm in C# zu erstellen, das zuf�
 
 * Erweitere das Programm so, dass es den Benutzer nach der Anzahl der Städte fragt, für die Entfernungen generiert werden sollen.
 * Anstatt nur die Entfernungen auszugeben, könntest du sie zusammen mit dem Namen einer zufällig generierten Stadt ausgeben.
+* Verwende eine andere Sortiermethode, wie z.B. MergeSort oder QuickSort, um das Array zu sortieren.
+[MergeSort @ Youtube](https://youtube.com/watch?v=-vSiwJaoGtM)
+[QuickSort @ Youtube](https://youtube.com/watch?v=eNUM23f6g-s)

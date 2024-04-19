@@ -24,7 +24,7 @@
 - IpAddress (`array`)
 - IntFactorizationMethod (`method`, `array`)
 - GreatestCommonDivisor (`method`)
-- BubbleSort (`method`, `array`)
+- SortingArray (`method`, `array`)
 
 ## For the fast ones
 
