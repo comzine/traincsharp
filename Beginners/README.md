@@ -25,6 +25,7 @@
 - IntFactorizationMethod (`method`, `array`)
 - GreatestCommonDivisor (`method`)
 - SortingArray (`method`, `array`)
+- FindInArray (`method`, `array`, `call by reference`)
 
 ## For the fast ones
 
