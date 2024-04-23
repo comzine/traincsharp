@@ -26,6 +26,7 @@
 - GreatestCommonDivisor (`method`)
 - SortingArray (`method`, `array`)
 - FindInArray (`method`, `array`, `call by reference`)
+- IntroductionToOOP (`class`, `object`, `method`, `array`)
 
 ## For the fast ones
 
