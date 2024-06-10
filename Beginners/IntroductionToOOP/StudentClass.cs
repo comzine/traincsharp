@@ -27,4 +27,24 @@ class StudentClass
     }
   }
 
+  public void PrintGrades()
+  {
+    System.Console.WriteLine("Noten in der Klasse " + this.name + ":");
+    for (int i = 0; i < this.studentCount; i++)
+    {
+      this.students[i].PrintGrade();
+    }
+  }
+
+  public void CalculateAndPrintAvgGrade()
+  {
+    float sum = 0f;
+    for (int i = 0; i < this.studentCount; i++)
+    {
+      sum += this.students[i].GetClassTest().GetGrade();
+    }
+    float avg = sum / this.studentCount;
+    Console.WriteLine($"Der Durchschnitt der KA ist {avg:f2}.");
+  }
+
 }

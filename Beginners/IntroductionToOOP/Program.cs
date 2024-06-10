@@ -7,3 +7,7 @@ beispielklasse.PrintStudents();
 max.Learn();
 marie.SetHeight(160);
 beispielklasse.PrintStudents();
+max.GetClassTest().CalculateGrade(20.5f, 24f);
+marie.GetClassTest().CalculateGrade(23.5f, 24f);
+beispielklasse.CalculateAndPrintAvgGrade();
+beispielklasse.PrintGrades();
