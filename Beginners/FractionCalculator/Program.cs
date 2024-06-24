@@ -1,0 +1,10 @@
+﻿Fraction fraction1 = new Fraction(3, 4);
+Fraction fraction2 = new Fraction(5, 7);
+Fraction sum = fraction1.Add(fraction2);
+Fraction difference = fraction1.Subtract(fraction2);
+Fraction product = fraction1.Multiply(fraction2);
+Fraction quotient = fraction1.Divide(fraction2);
+Console.WriteLine($"Sum: {sum}");
+Console.WriteLine($"Difference: {difference}");
+Console.WriteLine($"Product: {product}");
+Console.WriteLine($"Quotient: {quotient}");

@@ -28,6 +28,7 @@
 - FindInArray (`method`, `array`, `call by reference`)
 - PlaylistArrayControl (`array`, `method`)
 - IntroductionToOOP (`class`, `object`, `method`, `array`)
+- FractionCalculator (`class`, `object`, `method`)
 
 ## For the fast ones
 
