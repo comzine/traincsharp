@@ -8,3 +8,6 @@ Console.WriteLine($"Sum: {sum}");
 Console.WriteLine($"Difference: {difference}");
 Console.WriteLine($"Product: {product}");
 Console.WriteLine($"Quotient: {quotient}");
+Fraction fraction3 = new Fraction(6, 8);
+fraction3.Simplify();
+Console.WriteLine($"Simplified fraction: {fraction3}");

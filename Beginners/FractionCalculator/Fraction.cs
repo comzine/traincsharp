@@ -39,4 +39,22 @@ class Fraction
   {
     return $"{numerator}/{denominator}";
   }
+
+  public void Simplify()
+  {
+    int smallest = numerator;
+    if (denominator < smallest)
+    {
+      smallest = denominator;
+    }
+    // Find the greatest common divisor (not the most efficient way to do it, but it works for now)
+    for (int i = 2; i < smallest; i++)
+    {
+      while (numerator % i == 0 && denominator % i == 0)
+      {
+        numerator /= i;
+        denominator /= i;
+      }
+    }
+  }
 }
