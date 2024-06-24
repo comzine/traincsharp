@@ -30,7 +30,7 @@ Entwickle eine Fraction-Klasse in C#, mit der man Brüche darstellen und Grundre
 Sum: 41/28
 Difference: -1/28
 Product: 15/28
-Quotient: 21/20
+Quotient: 28/15
 ```
 
 ## Optional
