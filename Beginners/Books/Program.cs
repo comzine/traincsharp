@@ -1,5 +1,5 @@
 ﻿Book book1 = new Book("Der Herr der Ringe", "J.R.R. Tolkien", 1954, "978-3-608-93501-6", 1216);
-Book book2 = new Book("Harry Potter und der Stein der Weißen", "J.K. Rowling", 1997, "978-3-551-55118-4", 352);
+Book book2 = new Book("Harry Potter und der Stein der Weißen", "J.K. Rowling", 1997, "978-3551551672", 352);
 
 Console.WriteLine(book1);
 System.Console.WriteLine("Dieses Buch ist {0} Jahre alt.", book1.GetAgeInYears());
