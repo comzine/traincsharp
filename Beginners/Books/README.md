@@ -14,7 +14,7 @@ Entwickle eine Buch-Klasse in C#, mit der man Buchinformationen speichern und ve
    - Konstruktor:
      - `Book(string title, string author, int publicationYear, string isbn, int pageCount)`: Initialisiert eine neue Instanz der Book-Klasse mit den angegebenen Werten für Titel, Autor, Erscheinungsjahr, ISBN und Seitenanzahl.
    - Methoden:
-     - `GetAgeInYears()`: Berechnet das Alter des Buches in Jahren basierend auf dem aktuellen Jahr und dem Erscheinungsjahr. Gibt das Ergebnis als `int` zurück.
+     - `GetAgeInYears()`: Berechnet das Alter des Buches in Jahren basierend auf dem aktuellen Jahr und dem Erscheinungsjahr. Gibt das Ergebnis als `int` zurück. Tipp: Verwende die `DateTime.Now.Year`-Eigenschaft, um das aktuelle Jahr zu erhalten.
      - `ToString()`: Gibt eine Zeichenfolge zurück, die das Buch mit Titel, Autor und Erscheinungsjahr repräsentiert (z.B. "'Der Herr der Ringe' von J.R.R. Tolkien (1954)").
 
 2. **Buch-Operationen**: Führe die folgenden Operationen durch:
