@@ -29,6 +29,7 @@
 - PlaylistArrayControl (`array`, `method`)
 - IntroductionToOOP (`class`, `object`, `method`, `array`)
 - RectangleApp (`class`, `object`, `method`)
+- Banking (`class`, `object`, `method`)
 - FractionCalculator (`class`, `object`, `method`)
 
 ## For the fast ones
