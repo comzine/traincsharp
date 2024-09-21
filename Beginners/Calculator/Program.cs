@@ -1,7 +1,14 @@
-﻿
-double firstNumber = 0, secondNumber = 0, result = 0;
+﻿double firstNumber = 0,
+    secondNumber = 0,
+    result = 0;
 int choice = 0;
 string op = "";
+
+const string ADD = "+";
+const string SUBTRACT = "-";
+const string MULTIPLY = "*";
+const string DIVIDE = "/";
+const string MODULUS = "%";
 
 do
 {
@@ -19,14 +26,13 @@ do
         case 1:
             do
             {
-            System.Console.WriteLine("Input first number: ");
-            } 
-            while (double.TryParse(Console.ReadLine(), out firstNumber) == false);
+                System.Console.WriteLine("Input first number: ");
+            } while (double.TryParse(Console.ReadLine(), out firstNumber) == false);
             break;
         case 2:
             System.Console.WriteLine("Input operator: ");
             op = Console.ReadLine();
-            if (op != "+" && op != "-" && op != "*" && op != "/")
+            if (op != ADD && op != SUBTRACT && op != MULTIPLY && op != DIVIDE && op != MODULUS)
             {
                 System.Console.WriteLine("Invalid operator");
             }
@@ -45,22 +51,25 @@ do
         case 4:
             switch (op)
             {
-                case "+":
+                case ADD:
                     result = firstNumber + secondNumber;
                     break;
-                case "-":
+                case SUBTRACT:
                     result = firstNumber - secondNumber;
                     break;
-                case "*":
+                case MULTIPLY:
                     result = firstNumber * secondNumber;
                     break;
-                case "/":
+                case DIVIDE:
                     if (secondNumber == 0.0)
                     {
                         System.Console.WriteLine("Divide by zero");
                         break;
                     }
                     result = firstNumber / secondNumber;
+                    break;
+                case MODULUS:
+                    result = firstNumber % secondNumber;
                     break;
                 default:
                     System.Console.WriteLine("Invalid operator");

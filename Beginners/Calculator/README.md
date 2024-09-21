@@ -2,7 +2,7 @@
 
 ## Ziel der Übung
 
-Entwickle ein Konsolenprogramm in C#, das grundlegende arithmetische Operationen (Addition, Subtraktion, Multiplikation, Division) zwischen zwei Zahlen ausführen kann.
+Entwickle ein Konsolenprogramm in C#, das grundlegende arithmetische Operationen (Addition, Subtraktion, Multiplikation, Ganzzahlige Division, Modulo) zwischen zwei Zahlen ausführen kann.
 
 ## Anforderungen
 
@@ -26,7 +26,8 @@ Entwickle ein Konsolenprogramm in C#, das grundlegende arithmetische Operationen
   - Addition: `+`
   - Subtraktion: `-`
   - Multiplikation: `*`
-  - Division: `/`
+  - Ganzzahlige Division: `/`
+  - Modulo: `%`
 - Gib das Ergebnis der Berechnung auf dem Bildschirm aus.
 
 ### Schleife

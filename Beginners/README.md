@@ -3,19 +3,20 @@
 ## Training Projects in following order
 
 - VerifyAge (`if`-condition)
+- LeapYear (`if`-condition)
 - EasterCalculator
-- InterestCalc
-- EvenNumbersSum
-- Einmaleins
-- GuessNumber
-- CalcTraining
-- TempConvert
-- CurrencyConvert
-- CheckPrime
-- GradeConvert
+- InterestCalc (`for`-loop)
+- EvenNumbersSum (`for`-loop, `modulo`)
+- Einmaleins (nested `for`-loop)
+- GuessNumber (`while`-loop)
+- CalcTraining (`switch`-case)
+- GradeConvert (`switch`-case`)
+- TempConvert (`switch`-case)
+- CurrencyConvert (`switch`-case)
+- DateChecker (`if`-condition, `switch`-case)
+- CheckPrime (`if`-condition, `for`-loop, `modulo`)
 - FileTypeAnalyzer
 - Calculator
-- DateChecker
 - DigitSum (`string`)
 - StringReverse (`string`)
 - ConvertStringToInt (`string`)
@@ -27,7 +28,9 @@
 - SortingArray (`method`, `array`)
 - FindInArray (`method`, `array`, `call by reference`)
 - PlaylistArrayControl (`array`, `method`)
+- TicTacToe (`array`, `method`)
 - IntroductionToOOP (`class`, `object`, `method`, `array`)
+- TicTacToeOOP (`class`, `object`, `method`, `array`)
 - RectangleApp (`class`, `object`, `method`)
 - Books (`class`, `object`, `method`)
 - Banking (`class`, `object`, `method`)

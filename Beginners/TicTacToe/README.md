@@ -23,6 +23,14 @@ Tic Tac Toe ist ein Spiel für zwei Spieler, die abwechselnd Felder in einem 3x3
 5. Überprüfung auf Unentschieden
 6. Wechsel zwischen Spielern
 
+## Hinweise
+
+- Das Spielfeld wird als 3x3-Matrix dargestellt, wobei die Zeichen `X`, `O` und ` ` (Leerzeichen) verwendet werden.
+- Die Spieler werden durch die Zeichen `X` und `O` repräsentiert.
+- Die Spieler geben ihre Züge durch die Eingabe von Zeilen- und Spaltenindizes an (z.B. `1 2`).
+- Die Indizes beginnen bei 1 und enden bei 3.
+- Das Spiel endet, wenn ein Spieler gewinnt oder das Spielfeld vollständig belegt ist.
+
 ## Herausforderung
 
 Erweitern Sie das Spiel um zusätzliche Funktionen, wie zum Beispiel:

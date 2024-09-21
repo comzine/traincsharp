@@ -16,43 +16,39 @@ class Program
                 break;
             }
 
-            if (int.TryParse(input, out int year))
+            int year = Convert.ToInt32(input);
+
+            bool istSchaltjahr;
+
+            if (jahr % 400 == 0)
             {
-                bool istSchaltjahr = IstSchaltjahr(year);
-                if (istSchaltjahr)
-                {
-                    Console.WriteLine($"{year} ist ein Schaltjahr.");
-                }
-                else
-                {
-                    Console.WriteLine($"{year} ist kein Schaltjahr.");
-                }
+                istSchaltjahr = true;
+            }
+            else if (jahr % 100 == 0)
+            {
+                istSchaltjahr = false;
+            }
+            else if (jahr % 4 == 0)
+            {
+                istSchaltjahr = true;
             }
             else
             {
-                Console.WriteLine("Ungültige Eingabe. Bitte geben Sie eine gültige Jahreszahl ein.");
+                istSchaltjahr = false;
+            }
+
+            if (istSchaltjahr)
+            {
+                Console.WriteLine($"{year} ist ein Schaltjahr.");
+            }
+            else
+            {
+                Console.WriteLine($"{year} ist kein Schaltjahr.");
             }
 
             Console.WriteLine();
         }
 
         Console.WriteLine("Vielen Dank für die Verwendung des Schaltjahr-Prüfers!");
-    }
-
-    static bool IstSchaltjahr(int jahr)
-    {
-        if (jahr % 4 == 0)
-        {
-            if (jahr % 100 == 0)
-            {
-                if (jahr % 400 == 0)
-                {
-                    return true;
-                }
-                return false;
-            }
-            return true;
-        }
-        return false;
     }
 }
