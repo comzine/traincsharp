@@ -9,7 +9,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            string input, firstname, surname;
+            string input,
+                firstname,
+                surname;
             int age;
             Console.Write("Please enter your age: ");
             input = Console.ReadLine();
@@ -21,6 +23,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
             if (age > 17)
             {
                 Console.WriteLine(surname + ", you are a grown up!");
+                int yearsToRetirement = 67 - age;
+                Console.WriteLine("You have " + yearsToRetirement + " years to retirement.");
             }
             else
             {
