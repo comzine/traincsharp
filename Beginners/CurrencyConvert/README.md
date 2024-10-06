@@ -34,3 +34,13 @@ Erstelle ein Konsolenprogramm, das die Umrechnung zwischen verschiedenen Währun
 
 - Definiere feste Wechselkurse für jede Währungskombination.
 - Nutze `Convert.ToDouble()` für die Umwandlung der Eingabe in eine Zahl und implementiere eine entsprechende Fehlerbehandlung.
+
+## Optional
+
+- Nutze eine externe API, um Echtzeit-Wechselkurse zu beziehen.
+- Implementiere zusätzliche Währungen und Umrechnungsmöglichkeiten.
+
+## Lösungen
+
+- [Lösung](./Program.cs)
+- [Lösung mit API](./Program2.cs) zur Verfügung gestellt von [Niklas](https://github.com/PlayData2021), [Seetwo](https://seetwo.de/playdata). Vielen Dank!
