@@ -15,6 +15,7 @@
 - [CurrencyConvert (`switch`-case)](./CurrencyConvert)
 - [DateChecker (`if`-condition, `switch`-case)](./DateChecker)
 - [CheckPrime (`if`-condition, `for`-loop, `modulo`)](./CheckPrime)
+- [PasswordGenerator (`if`-condition, `for`-loop, `Random`)](./PasswordGenerator)
 - [FileTypeAnalyzer](./FileTypeAnalyzer)
 - [Calculator](./Calculator)
 - [Prison (`array`)](./Prison)
