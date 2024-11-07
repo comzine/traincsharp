@@ -17,6 +17,7 @@
 - [CheckPrime (`if`-condition, `for`-loop, `modulo`)](./CheckPrime)
 - [FileTypeAnalyzer](./FileTypeAnalyzer)
 - [Calculator](./Calculator)
+- [Prison (`array`)](./Prison)
 - [DigitSum (`string`)](./DigitSum)
 - [StringReverse (`string`)](./StringReverse)
 - [ConvertStringToInt (`string`)](./ConvertStringToInt)
