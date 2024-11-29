@@ -19,6 +19,7 @@
 - [FileTypeAnalyzer](./FileTypeAnalyzer)
 - [Calculator](./Calculator)
 - [Prison (`array`)](./Prison)
+- [Measurement (`array`)](./Measurement)
 - [DigitSum (`string`)](./DigitSum)
 - [StringReverse (`string`)](./StringReverse)
 - [ConvertStringToInt (`string`)](./ConvertStringToInt)
