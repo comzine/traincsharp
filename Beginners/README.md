@@ -29,6 +29,7 @@
 - [ConvertStringToIntMethod (`method`, `string`, `array`)](./ConvertStringToIntMethod)
 - [IntFactorizationMethod (`method`, `array`)](./IntFactorizationMethod)
 - [GreatestCommonDivisor (`method`)](./GreatestCommonDivisor)
+- [Lotto (`method`, `array`)](./Lotto)
 - [SortingArray (`method`, `array`)](./SortingArray)
 - [FindInArray (`method`, `array`, `call by reference`)](./FindInArray)
 - [PlaylistArrayControl (`array`, `method`)](./PlaylistArrayControl)
