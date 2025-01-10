@@ -2,7 +2,7 @@
 
 ## Ziel
 
-Entwickle einen Konsolenprogramm in C#, das ein Lottospiel (6 aus 49) simuliert. Der Benutzer soll seine Glückszahlen eingeben können und mehrere Ziehungen simulieren können. Bei einer Falscheingabe soll der Benutzer erneut aufgefordert werden, eine gültige Eingabe zu machen. Nach jeder Ziehung soll die Anzahl der richtigen Zahlen und der Gewinn angezeigt werden. Am Ende des Spiels soll der Gesamtgewinn oder -verlust angezeigt werden.
+Entwickle ein Konsolenprogramm in C#, das ein Lottospiel (6 aus 49) simuliert. Der Benutzer soll seine Glückszahlen eingeben und mehrere Ziehungen simulieren können. Bei einer Falscheingabe soll der Benutzer erneut aufgefordert werden, eine gültige Eingabe zu machen. Nach jeder Ziehung soll die Anzahl der richtigen Zahlen und der Gewinn angezeigt werden. Am Ende des Spiels soll der Gesamtgewinn oder -verlust angezeigt werden.
 
 ## Anforderungen
 
