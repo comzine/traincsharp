@@ -31,6 +31,7 @@
 - [IntFactorizationMethod (`method`, `array`)](./IntFactorizationMethod)
 - [GreatestCommonDivisor (`method`)](./GreatestCommonDivisor)
 - [Lotto (`method`, `array`)](./Lotto)
+- [ConvertDualDezArray (`method`, `array`)](./ConvertDualDezArray)
 - [CalculatorTryCatch (`method`, `try`, `catch`)](./CalculatorTryCatch)
 - [SortingArray (`method`, `array`)](./SortingArray)
 - [FindInArray (`method`, `array`, `call by reference`)](./FindInArray)
