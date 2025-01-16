@@ -52,7 +52,7 @@ static int[] InputDualZahl()
 #### Zu implementieren
 
 - `PrintArray`: Ausgabe eines Zahlenarrays ohne Trennzeichen
-- `Potenz`: Berechnung von Potenzen ohne Math.Pow
+- `Potenz`: Berechnung von [Potenzen](<https://de.wikipedia.org/wiki/Potenz_(Mathematik)#Nat%C3%BCrliche_Exponenten>) ohne Math.Pow
 
 ## Beispielinteraktion
 
@@ -74,7 +74,7 @@ Die Dezimalzahl lautet: 42
 
 ## Hinweise
 
-- Nutze ein 32-Bit Array für die binäre Darstellung
+- Nutze ein 32-Bit Ganzzahl Array für die binäre Darstellung
 - Achte auf die korrekte Behandlung führender Nullen
 - Verwende die vorgegebene InputDualZahl-Methode für Dualeingaben
 - Das Programm soll erst beendet werden, wenn Option 3 gewählt wird
