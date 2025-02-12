@@ -37,6 +37,7 @@
 - [FindInArray (`method`, `array`, `call by reference`)](./FindInArray)
 - [PlaylistArrayControl (`array`, `method`)](./PlaylistArrayControl)
 - [TicTacToe (`array`, `method`)](./TicTacToe)
+- [IPSubnetInfo (`method`, `array`)](./IPSubnetInfo)
 - [IntroductionToOOP (`class`, `object`, `method`, `array`)](./IntroductionToOOP)
 - [TicTacToeOOP (`class`, `object`, `method`, `array`)](./TicTacToeOOP)
 - [RectangleApp (`class`, `object`, `method`)](./RectangleApp)
