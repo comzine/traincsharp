@@ -18,16 +18,16 @@ Implementiere ein Auswahlmenü mit folgenden Optionen:
 
 #### Dezimal zu Dual (`ConvertDezToDual`)
 
-- **Input**: Dezimalzahl (int)
-- **Output**: Array mit 32 Bits
+- **Übergabeparameter**: Dezimalzahl (int)
+- **Rückgabe**: Integer-Array mit 32 Binärziffern
 - **Methode**: Division-Rest-Verfahren
 - Berechnung erfolgt durch wiederholte Division durch 2
 - Reste ergeben die Binärziffern (von rechts nach links)
 
 #### Dual zu Dezimal (`ConvertDualToDez`)
 
-- **Input**: Binärzahlen-Array
-- **Output**: Dezimalzahl (int)
+- **Übergabeparameter**: Binärzahlen-Array
+- **Rückgabe**: Dezimalzahl (int)
 - **Methode**: Horner-Schema
 - Berechnung der Potenzen von 2 und Summierung der Produkte
 
