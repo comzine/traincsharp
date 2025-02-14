@@ -27,6 +27,7 @@
 - [IpChecker (`string`)](./IpChecker)
 - [IpAddress (`array`)](./IpAddress)
 - [TempConvertMethod (`method`)](./TempConvertMethod)
+- [AnnuityLoan (`method`)](./AnnuityLoan)
 - [ConvertStringToIntMethod (`method`, `string`, `array`)](./ConvertStringToIntMethod)
 - [IntFactorizationMethod (`method`, `array`)](./IntFactorizationMethod)
 - [GreatestCommonDivisor (`method`)](./GreatestCommonDivisor)
