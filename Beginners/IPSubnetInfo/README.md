@@ -1,110 +1,142 @@
-# Übung: IP-Adress-Rechner
+# Übung: IP-Adress-Rechner mit Netzwerk-Analyse
 
 ## Ziel
 
-Entwickle ein Konsolenprogramm in C#, das für eine eingegebene IP-Adresse und Netzmaske die Netzwerk- und Broadcast-Adresse berechnet. Das Programm soll die Umrechnung zwischen Dezimal- und Binärzahlen beherrschen und die Netzwerkberechnung nach den Regeln der IPv4-Adressierung durchführen.
+Entwickle ein Konsolenprogramm in C#, das IP-Adressen und Netzmasken verarbeitet, um wichtige Netzwerkinformationen zu berechnen und zu analysieren.
+
+## Theoretische Grundlagen
+
+### IP-Adressen und Netzmasken
+
+Eine IPv4-Adresse besteht aus 4 Oktetten (8-Bit-Zahlen), die durch Punkte getrennt sind. Die Netzmaske in CIDR-Notation gibt an, wie viele Bits von links für das Netzwerk reserviert sind.
+
+### Berechnung der Netzwerkadresse
+
+Die Berechnung der Netzwerkadresse erfolgt in mehreren Schritten:
+
+1. **Bestimmung des betroffenen Oktetts**:
+
+   - Bei einer Netzmaske /16 sind die ersten zwei Oktette komplett Netzwerk
+   - Die Formel `mask / 8` gibt das betroffene Oktett an
+   - Beispiel: /20 → 20/8 = 2 (drittes Oktett betroffen)
+
+2. **Bestimmung der Bitposition**:
+
+   - Die Formel `mask % 8` gibt die Position im betroffenen Oktett an
+   - Beispiel: /20 → 20%8 = 4 (ab dem 4. Bit im dritten Oktett)
+
+3. **Nullsetzen der Host-Bits**:
+   - Alle Bits ab der berechneten Position werden auf 0 gesetzt
+   - Alle nachfolgenden Oktette werden komplett auf 0 gesetzt
+
+### Beispiel
+
+IP-Adresse: 192.168.177.134/20
+
+```
+Position = 20/8 = 2 (drittes Oktett)
+Bitposition = 20%8 = 4
+
+177 in Binär: 10110001
+Nach Nullsetzen: 10110000 = 176
+
+Ergebnis: 192.168.176.0
+```
 
 ## Anforderungen
 
-### 1. Eingabefunktionen
+### 1. String-Verarbeitung
 
-- Implementiere eine Funktion `InputIpAddress()`, die:
+- Implementiere die Zerlegung der IP-Adresse mit `Split('.')`
+- Verwende `int.Parse()` zur Konvertierung der Teile in Zahlen
+- Implementiere Fehlerbehandlung für ungültige Eingaben
 
-  - Eine IP-Adresse im Format "xxx.xxx.xxx.xxx" einliest
-  - Die Eingabe an den Punkten trennt
-  - Die Teile in ein Integer-Array mit 4 Elementen umwandelt
+### 2. Binäroperationen
 
-- Implementiere eine Funktion `InputMask()`, die:
-  - Eine Netzmaske als einzelne Zahl (CIDR-Notation) einliest
-  - Die Eingabe in einen Integer-Wert umwandelt
+Implementiere zwei wichtige Konvertierungsfunktionen:
 
-### 2. Konvertierungsfunktionen
+#### Dezimal zu Binär
 
-- Implementiere eine Funktion `DezimalToDual()`, die:
-
-  - Eine Dezimalzahl in ihre 8-stellige Binärdarstellung umwandelt
-  - Das Ergebnis als Integer-Array zurückgibt
-
-- Implementiere eine Funktion `DualToDezimal()`, die:
-  - Ein Binärzahl-Array in die entsprechende Dezimalzahl umwandelt
-  - Das Ergebnis als Integer zurückgibt
-
-### 3. Berechnungsfunktionen
-
-- Implementiere eine Funktion `CalculateNetworkAddress()`, die:
-
-  - Eine IP-Adresse und Netzmaske als Parameter erhält
-  - Die Netzwerkadresse nach den IPv4-Regeln berechnet
-  - Das Ergebnis als Integer-Array zurückgibt
-
-- Implementiere eine Funktion `CalculateBroadcastAddress()`, die:
-  - Eine IP-Adresse und Netzmaske als Parameter erhält
-  - Die Broadcast-Adresse nach den IPv4-Regeln berechnet
-  - Das Ergebnis als Integer-Array zurückgibt
-
-### 4. Ausgabe
-
-- Gib die berechnete Netzwerk- und Broadcast-Adresse im Format "xxx.xxx.xxx.xxx" aus
-
-## Beispielausführung
-
+```csharp
+// Konvertiert eine Dezimalzahl (0-255) in ein 8-Bit Array
+static int[] DezimalToDual(int dez)
 ```
-Enter IP address:
-192.168.178.55
-Enter mask (for /24 enter 24):
-24
-Network address: 192.168.178.0
-Broadcast address: 192.168.178.255
+
+#### Binär zu Dezimal
+
+```csharp
+// Konvertiert ein 8-Bit Array zurück in eine Dezimalzahl
+static int DualToDezimal(int[] dual)
+```
+
+### 3. Netzwerkberechnungen
+
+#### Netzwerkadresse
+
+```csharp
+static int[] CalculateNetworkAddress(int[] ipAddress, int mask)
+```
+
+- Berechne das betroffene Oktett: `mask / 8`
+- Berechne die Bitposition: `mask % 8`
+- Setze alle Bits ab dieser Position auf 0
+- Setze alle nachfolgenden Oktette auf 0
+
+#### Broadcast-Adresse
+
+```csharp
+static int[] CalculateBroadcastAddress(int[] ipAddress, int mask)
+```
+
+- Ähnlich wie Netzwerkadresse, aber setze alle Host-Bits auf 1
+- Setze alle nachfolgenden Oktette auf 255
+
+## Implementierungsdetails
+
+### Eingabevalidierung
+
+```csharp
+// Beispiel für IP-Adress-Validierung
+string[] eingabeTeile = eingabe.Split('.');
+if (eingabeTeile.Length != 4)
+{
+    // Fehlerbehandlung
+}
+```
+
+### Bitoperationen
+
+Für die Umwandlung in Binär:
+
+```csharp
+while (dez > 0)
+{
+    int rest = dez % 2;  // Rest ist das aktuelle Bit
+    dez = dez / 2;       // Teile durch 2 für nächstes Bit
+}
 ```
 
 ## Hinweise
 
-- Die Netzwerkadresse entsteht durch Nullsetzen aller Bits nach der Netzmaske
-- Die Broadcast-Adresse entsteht durch Einsetzen aller Bits nach der Netzmaske
-- Nutze die mathematischen Grundlagen der Binär-Dezimal-Umrechnung
-- Beachte die korrekte Behandlung der 8-Bit-Grenzen bei der IP-Adresse
+- Teste dein Programm mit verschiedenen Netzmasken (z.B. /16, /24, /20)
+- Beachte Sonderfälle wie /8 oder /30
+- Verwende Arrays für die IP-Adressen: `int[] ipAddress = new int[4]`
+- Implementiere robuste Fehlerbehandlung bei der Eingabe
+- Nutze Konstanten für häufig verwendete Werte (z.B. `const int OCTET_COUNT = 4`)
 
-## Hilfreiche Methoden
+## Testfälle
 
-1. **String-Verarbeitung**:
+1. IP: 192.168.1.100/24
 
-   - `string.Split(char separator)`: Teilt einen String an den angegebenen Trennzeichen
-   - `string.Join(string separator, IEnumerable values)`: Verbindet Array-Elemente mit einem Trennzeichen
+   - Netzwerk: 192.168.1.0
+   - Broadcast: 192.168.1.255
 
-   ```csharp
-   string[] parts = "192.168.178.55".Split('.');  // Ergibt: ["192", "168", "178", "55"]
-   string joined = string.Join(".", new int[] {192, 168, 178, 55});  // Ergibt: "192.168.178.55"
-   ```
+2. IP: 192.168.177.134/20
+   - Netzwerk: 192.168.176.0
+   - Broadcast: 192.168.191.255
 
-2. **Konvertierung**:
+## Optional
 
-   - `int.Parse(string s)`: Wandelt einen String in eine Ganzzahl um
-
-   ```csharp
-   int number = int.Parse("192");  // Ergibt: 192
-   ```
-
-3. **Mathematische Operationen**:
-
-   - `Math.Pow(double x, double y)`: Berechnet x hoch y
-
-   ```csharp
-   int result = (int)Math.Pow(2, 3);  // Ergibt: 8
-   ```
-
-   - Modulo-Operator (`%`): Berechnet den Rest einer Division
-
-   ```csharp
-   int rest = 7 % 2;  // Ergibt: 1
-   ```
-
-4. **Array-Operationen**:
-   - Array-Initialisierung: `int[] array = new int[4];`
-   - Array-Zugriff: `array[0] = 192;`
-   - Array-Länge: `array.Length`
-
-## Erweiterungsmöglichkeiten
-
-- Implementiere eine Validierung der Eingaben (IP-Adressen im gültigen Bereich 0-255)
-- Füge eine Berechnung der ersten und letzten nutzbaren Host-Adresse hinzu
-- Ergänze die Ausgabe der Anzahl nutzbarer Host-Adressen im Netzwerk
+- Implementiere eine Funktion zur Validierung privater IP-Bereiche
+- Füge eine Funktion zur Berechnung der Subnetz-Maske in Dezimalnotation hinzu
+- Erweitere das Programm um IPv6-Unterstützung
