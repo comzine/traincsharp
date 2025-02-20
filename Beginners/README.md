@@ -39,6 +39,11 @@
 - [PlaylistArrayControl (`array`, `method`)](./PlaylistArrayControl)
 - [TicTacToe (`array`, `method`)](./TicTacToe)
 - [IPSubnetInfo (`method`, `array`)](./IPSubnetInfo)
+
+### Object Oriented Programming
+
+- [IPSubnetInfoOOP1 (`class`, `object`, `method`, `array`)](./IPSubnetInfoOOP1)
+- [IPSubnetInfoOOP2 (`class`, `object`, `method`, `array`)](./IPSubnetInfoOOP2)
 - [IntroductionToOOP (`class`, `object`, `method`, `array`)](./IntroductionToOOP)
 - [TicTacToeOOP (`class`, `object`, `method`, `array`)](./TicTacToeOOP)
 - [RectangleApp (`class`, `object`, `method`)](./RectangleApp)
