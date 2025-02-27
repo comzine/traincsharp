@@ -1,90 +1,148 @@
-﻿Console.WriteLine("Lotto Simulator");
+﻿int[] betraege = { 0, 0, 5, 10, 200, 1000, 1000000 };
 
-float wonAmount = 0;
-
-int[] numbers = new int[6];
-
-Console.WriteLine("Choose 6 numbers between 1 and 49");
-
-for (int i = 0; i < 6; i++)
+Random rnd = new Random();
+int[] userNumbers = new int[6];
+for (int i = 0; i < userNumbers.Length; i++)
 {
-  numbers[i] = InputNumberBetween(1, 49);
+  userNumbers[i] = InputNumberBetween(1, 49);
 }
 
-Console.WriteLine("How many rounds should be simulated?");
-int rounds = InputNumberBetween(1, int.MaxValue);
+Console.Write($"Ihre Zahlen: ");
+BubbleSort(userNumbers);
+AusgabeArray(userNumbers);
 
-Console.WriteLine("You have to pay 1.50€ for each round.");
-Console.WriteLine("So you have to pay " + rounds * 1.5 + "€");
-wonAmount -= rounds * 1.5f;
+int anzahlRunden = 0;
+Console.WriteLine($"Wie viele Runden moechten Sie spielen? Eine Runde kostet 1,50 Euro.");
+string eingabe = Console.ReadLine();
+anzahlRunden = Convert.ToInt32(eingabe);
 
-for (int i = 0; i < rounds; i++)
+double gesamtGewonnen = 0;
+
+for (int runde = 0; runde < anzahlRunden; runde++)
 {
-  Console.WriteLine($"Round {i + 1}");
+  gesamtGewonnen = gesamtGewonnen - 1.5;
+  int[] drawnNumbers = DrawNumbers();
+  int correctNumbers = CountCorrectNumbers(userNumbers, drawnNumbers);
+  int wonAmount = GetWonAmount(correctNumbers);
 
-  int correctNumbers = CountCorrectNumbers(numbers, DrawNumbers());
+  Console.Write($"Gezogene Zahlen: ");
+  BubbleSort(drawnNumbers);
+  AusgabeArray(drawnNumbers);
 
-  Console.WriteLine($"Correct numbers: {correctNumbers}");
-  Console.WriteLine($"You won {GetWonAmount(correctNumbers)}€");
-  wonAmount += GetWonAmount(correctNumbers);
+  Console.WriteLine($"Sie haben {wonAmount} Euro gewonnen.");
+  gesamtGewonnen = gesamtGewonnen + wonAmount;
 }
 
-Console.WriteLine($"You won {wonAmount}€");
+Console.WriteLine($"Sie haben in {anzahlRunden} Runden {gesamtGewonnen} Euro gewonnen.");
 
 int InputNumberBetween(int min, int max)
 {
-  int number = 0;
-  bool validNumber = false;
+  int result = 0;
+  bool isValid = true;
   do
   {
-    Console.Write($"Input a number between {min} and {max}: ");
-    validNumber = int.TryParse(Console.ReadLine(), out number);
-  } while (!validNumber || number < min || number > max);
-  return number;
+    isValid = true;
+    Console.WriteLine($"Bitte Zahl zw. {min} und {max} eingeben.");
+    string eingabe = Console.ReadLine();
+    try
+    {
+      result = Convert.ToInt32(eingabe);
+    }
+    catch
+    {
+      isValid = false;
+    }
+    if (result < min || result > max)
+    {
+      isValid = false;
+    }
+  } while (isValid == false);
+  return result;
 }
 
 int[] DrawNumbers()
 {
-  Random random = new Random();
-  int[] numbers = new int[6];
+  int[] kugeln = new int[49];
+  int anzahlGezogeneKugeln = 0;
+
+  for (int i = 0; i < kugeln.Length; i++)
+  {
+    kugeln[i] = i + 1;
+  }
+  /*
+  int ersterIndex = rnd.Next(0, 49);
+  Tauschen(kugeln, ersterIndex, 48);
+  int zweiterIndex = rnd.Next(0, 48);
+  Tauschen(kugeln, zweiterIndex, 47);
+  int dritterIndex = rnd.Next(0, 47);
+  Tauschen(kugeln, dritterIndex, 46);
+  */
+
   for (int i = 0; i < 6; i++)
   {
-    numbers[i] = random.Next(1, 50);
+    int index = rnd.Next(0, 49 - i);
+    Tauschen(kugeln, index, 48 - i);
   }
-  return numbers;
+
+  int[] result = new int[6];
+  for (int i = 0; i < result.Length; i++)
+  {
+    result[i] = kugeln[48 - i];
+  }
+  return result;
 }
 
 int CountCorrectNumbers(int[] numbers, int[] drawnNumbers)
 {
   int correctNumbers = 0;
-  for (int i = 0; i < 6; i++)
+  for (int i = 0; i < numbers.Length; i++)
   {
-    if (numbers.Contains(drawnNumbers[i]))
+    for (int j = 0; j < drawnNumbers.Length; j++)
     {
-      correctNumbers++;
+      if (numbers[i] == drawnNumbers[j])
+      {
+        correctNumbers++;
+      }
     }
   }
   return correctNumbers;
 }
 
+/*
+2 Richtige: 5€
+3 Richtige: 20€
+4 Richtige: 100€
+5 Richtige: 1.000€
+6 Richtige: 1.000.000€
+*/
 int GetWonAmount(int correctNumbers)
 {
-  switch (correctNumbers)
+  return betraege[correctNumbers];
+}
+
+void Tauschen(int[] array, int index1, int index2)
+{
+  int tmp = array[index2];
+  array[index2] = array[index1];
+  array[index1] = tmp;
+}
+
+void AusgabeArray(int[] array)
+{
+  string ausgabe = string.Join(' ', array);
+  Console.WriteLine(ausgabe);
+}
+
+void BubbleSort(int[] array)
+{
+  for (int j = 0; j < array.Length; j++)
   {
-    case 0:
-    case 1:
-      return 0;
-    case 2:
-      return 5;
-    case 3:
-      return 20;
-    case 4:
-      return 100;
-    case 5:
-      return 1000;
-    case 6:
-      return 1000000;
-    default:
-      return 0;
+    for (int i = 0; i < array.Length - 1 - j; i++)
+    {
+      if (array[i] > array[i + 1])
+      {
+        Tauschen(array, i, i + 1);
+      }
+    }
   }
 }

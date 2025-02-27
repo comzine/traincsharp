@@ -61,6 +61,7 @@ Implementiere folgende Gewinnstaffel:
 
 ## Optionale Erweiterungen
 
+- Implementiere eine BubbleSort Methode und gebe die Benutzer- und gezogenen Kugeln sortiert aus.
 - Implementiere eine Prüfung auf doppelte Zahlen bei der Spielereingabe
 - Füge eine Statistik hinzu, die die Häufigkeit der verschiedenen Gewinnstufen anzeigt
 - Erweitere das Spiel um zusätzliche Lotterievarianten (z.B. 5 aus 50)
