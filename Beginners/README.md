@@ -50,6 +50,7 @@
 - [Books (`class`, `object`, `method`)](./Books)
 - [Banking (`class`, `object`, `method`)](./Banking)
 - [FractionCalculator (`class`, `object`, `method`)](./FractionCalculator)
+- [LeastCommonMultiple (`class`, `object`, `method`)](./LeastCommonMultiple)
 
 ## For the fast ones
 
