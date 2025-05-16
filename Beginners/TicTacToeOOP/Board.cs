@@ -1,82 +1,101 @@
-using System;
-
-namespace TicTacToeOOP
+public class Board
 {
-    public class Board
+    public char[,] Spielfeld { get; private set; }
+
+    public Board()
     {
-        private char[,] grid;
-
-        public Board()
+        Spielfeld = new char[3, 3];
+        for (int i = 0; i < Spielfeld.GetLength(0); i++)
         {
-            grid = new char[3, 3];
-            InitializeBoard();
-        }
-
-        private void InitializeBoard()
-        {
-            for (int i = 0; i < 3; i++)
+            for (int j = 0; j < Spielfeld.GetLength(1); j++)
             {
-                for (int j = 0; j < 3; j++)
-                {
-                    grid[i, j] = ' ';
-                }
+                Spielfeld[i, j] = ' ';
             }
         }
+    }
 
-        public bool PlaceMark(int row, int col, char mark)
+    public override string ToString()
+    {
+        string s = "";
+
+        s += Spielfeld[0, 0] + " | " + Spielfeld[1, 0] + " | " + Spielfeld[2, 0];
+        s += "\n---------\n";
+        s += Spielfeld[0, 1] + " | " + Spielfeld[1, 1] + " | " + Spielfeld[2, 1];
+        s += "\n---------\n";
+        s += Spielfeld[0, 2] + " | " + Spielfeld[1, 2] + " | " + Spielfeld[2, 2];
+
+        //  X |   | O
+        //  ---------
+        //    | O | X
+        //  ---------
+        //  X | O |  
+
+        return s;
+    }
+
+    public bool IsValid(int[] zug)
+    {
+        if (zug[0] < 0 || zug[0] > 2 || zug[1] < 0 || zug[1] > 2)
         {
-            if (row < 0 || row > 2 || col < 0 || col > 2 || grid[row, col] != ' ')
-            {
-                return false;
-            }
-            grid[row, col] = mark;
+            return false;
+        }
+        if (Spielfeld[zug[0], zug[1]] == ' ')
+        {
             return true;
         }
+        return false;
+    }
 
-        public bool IsFull()
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    if (grid[i, j] == ' ')
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
+    public void Set(int[] zug, char zeichen)
+    {
+        Spielfeld[zug[0], zug[1]] = zeichen;
+    }
 
-        public bool CheckWin(char mark)
+    public char Won()
+    {
+        // Zeilen
+        for (int row = 0; row < 3; row++)
         {
-            // Check rows, columns and diagonals
-            for (int i = 0; i < 3; i++)
+            if (Spielfeld[row, 0] != ' ' && Spielfeld[row, 0] == Spielfeld[row, 1] && Spielfeld[row, 0] == Spielfeld[row, 2])
             {
-                if ((grid[i, 0] == mark && grid[i, 1] == mark && grid[i, 2] == mark) ||
-                    (grid[0, i] == mark && grid[1, i] == mark && grid[2, i] == mark))
-                {
-                    return true;
-                }
-            }
-            return (grid[0, 0] == mark && grid[1, 1] == mark && grid[2, 2] == mark) ||
-                   (grid[0, 2] == mark && grid[1, 1] == mark && grid[2, 0] == mark);
-        }
-
-        public void Display()
-        {
-            Console.WriteLine("  0 1 2");
-            for (int i = 0; i < 3; i++)
-            {
-                Console.Write(i + " ");
-                for (int j = 0; j < 3; j++)
-                {
-                    Console.Write(grid[i, j]);
-                    if (j < 2) Console.Write("|");
-                }
-                Console.WriteLine();
-                if (i < 2) Console.WriteLine("  -+-+-");
+                return Spielfeld[row, 0];
             }
         }
+
+        // Spalten
+        for (int column = 0; column < 3; column++)
+        {
+            if (Spielfeld[0, column] != ' ' && Spielfeld[0, column] == Spielfeld[1, column] && Spielfeld[0, column] == Spielfeld[2, column])
+            {
+                return Spielfeld[0, column];
+            }
+        }
+
+        if (Spielfeld[0, 0] != ' ' && Spielfeld[0, 0] == Spielfeld[1, 1] && Spielfeld[0, 0] == Spielfeld[2, 2])
+        {
+            return Spielfeld[0, 0];
+        }
+
+        if (Spielfeld[2, 0] != ' ' && Spielfeld[2, 0] == Spielfeld[1, 1] && Spielfeld[2, 0] == Spielfeld[0, 2])
+        {
+            return Spielfeld[2, 0];
+        }
+
+        return ' ';
+    }
+
+    public bool Unentschieden()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (Spielfeld[i, j] == ' ')
+                {
+                    return false;
+                }
+            }
+        }
+        return Won() == ' ';
     }
 }

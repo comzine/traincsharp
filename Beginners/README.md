@@ -45,13 +45,13 @@
 - [IPSubnetInfoOOP1 (`class`, `object`, `method`, `array`)](./IPSubnetInfoOOP1)
 - [IPSubnetInfoOOP2 (`class`, `object`, `method`, `array`)](./IPSubnetInfoOOP2)
 - [IntroductionToOOP (`class`, `object`, `method`, `array`)](./IntroductionToOOP)
-- [TicTacToeOOP (`class`, `object`, `method`, `array`)](./TicTacToeOOP)
 - [RectangleApp (`class`, `object`, `method`)](./RectangleApp)
 - [Books (`class`, `object`, `method`)](./Books)
 - [Banking (`class`, `object`, `method`)](./Banking)
 - [FractionCalculator (`class`, `object`, `method`)](./FractionCalculator)
 - [BankingProperties (`class`, `object`, `method`, `properties`)](./BankingProperties)
 - [LeastCommonMultiple (`class`, `object`, `method`)](./LeastCommonMultiple)
+- [TicTacToeOOP (`class`, `object`, `method`, `array`, `properties`)](./TicTacToeOOP)
 
 ## For the fast ones
 
