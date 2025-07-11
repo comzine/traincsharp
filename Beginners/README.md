@@ -52,6 +52,7 @@
 - [BankingProperties (`class`, `object`, `method`, `properties`)](./BankingProperties)
 - [LeastCommonMultiple (`class`, `object`, `method`)](./LeastCommonMultiple)
 - [TicTacToeOOP (`class`, `object`, `method`, `array`, `properties`)](./TicTacToeOOP)
+- [Snake (`list`, `class`, `object`, `method`, `array`)](./Snake)
 
 ## For the fast ones
 
