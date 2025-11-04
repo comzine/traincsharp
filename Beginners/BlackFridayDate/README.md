@@ -30,9 +30,8 @@ Entwickle ein Konsolenprogramm in C#, das das Datum des Black Friday für ein vo
 
 - Verzichte auf die Verwendung der `DateTime`-Klasse.
 - Implementiere alle Berechnungen und Logik direkt innerhalb der `Main`-Methode.
+- Verwende `Convert.ToInt32()` zur Umwandlung der Benutzereingabe in eine Zahl.
 
-## Hinweise
+## Optional
 
-- Achte darauf, dass das Jahr korrekt vom Benutzer eingegeben wird. Verwende `Convert.ToInt32()` zur Umwandlung der Benutzereingabe in eine Zahl.
 - Führe eine entsprechende Fehlerbehandlung durch, falls die Eingabe ungültig ist.
-- Kommentiere deinen Code, um die Lesbarkeit und Wartbarkeit zu verbessern.
