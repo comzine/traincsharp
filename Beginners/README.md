@@ -6,6 +6,7 @@
 - [VerifyAge (`if`-condition)](./VerifyAge)
 - [LeapYear (`if`-condition)](./LeapYear)
 - [EasterCalculator](./EasterCalculator)
+- [ForLoops (`for`-loop)](./ForLoops)
 - [InterestCalc (`for`-loop)](./InterestCalc)
 - [EvenNumbersSum (`for`-loop, `modulo`)](./EvenNumbersSum)
 - [Einmaleins (nested `for`-loop)](./Einmaleins)
