@@ -25,20 +25,6 @@ Console.WriteLine(ergebnis);  // Ausgabe: 33,33333333333333
 - Für Geldbeträge in echten Anwendungen verwendet man `decimal`, aber für Übungen reicht `double`
 - Bei der Eingabe von Dezimalzahlen muss der Benutzer ein Komma verwenden (deutsche Einstellung)
 
-## String-Interpolation mit $"..."
-
-In C# kannst du mit String-Interpolation Variablen direkt in einen Text einfügen. Das ist übersichtlicher als die ältere `{0}`-Syntax:
-
-```csharp
-int alter = 25;
-string name = "Max";
-
-Console.WriteLine($"Hallo {name}, du bist {alter} Jahre alt.");
-// Ausgabe: Hallo Max, du bist 25 Jahre alt.
-```
-
-**Wichtig:** Das `$` vor den Anführungszeichen aktiviert die String-Interpolation!
-
 ## Formatierung mit :F2
 
 Wenn du eine Zahl mit einer bestimmten Anzahl von Nachkommastellen ausgeben möchtest, verwendest du Formatierungsangaben innerhalb der geschweiften Klammern:
@@ -195,4 +181,4 @@ Gesamtgewinn: 276,28
 - Erweitere das Programm, sodass der Benutzer wählen kann, ob er jährliche oder monatliche Zinsen berechnen möchte.
 - Füge eine Berechnung hinzu, die zeigt, nach wie vielen Jahren sich das Kapital verdoppelt hat.
 - Implementiere eine Vergleichsrechnung: Der Benutzer kann zwei verschiedene Zinssätze eingeben und sieht beide Entwicklungen nebeneinander.
-- Erstelle eine Grafik mit Sternen (*), die die Kapitalentwicklung visualisiert.
+- Erstelle eine Grafik mit Sternen (\*), die die Kapitalentwicklung visualisiert.
