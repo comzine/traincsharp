@@ -25,43 +25,58 @@ Console.WriteLine(ergebnis);  // Ausgabe: 33,33333333333333
 - Für Geldbeträge in echten Anwendungen verwendet man `decimal`, aber für Übungen reicht `double`
 - Bei der Eingabe von Dezimalzahlen muss der Benutzer ein Komma verwenden (deutsche Einstellung)
 
+## String-Interpolation mit $"..."
+
+In C# kannst du mit String-Interpolation Variablen direkt in einen Text einfügen. Das ist übersichtlicher als die ältere `{0}`-Syntax:
+
+```csharp
+int alter = 25;
+string name = "Max";
+
+Console.WriteLine($"Hallo {name}, du bist {alter} Jahre alt.");
+// Ausgabe: Hallo Max, du bist 25 Jahre alt.
+```
+
+**Wichtig:** Das `$` vor den Anführungszeichen aktiviert die String-Interpolation!
+
 ## Formatierung mit :F2
 
-Wenn du eine Zahl mit einer bestimmten Anzahl von Nachkommastellen ausgeben möchtest, verwendest du Formatierungsangaben:
+Wenn du eine Zahl mit einer bestimmten Anzahl von Nachkommastellen ausgeben möchtest, verwendest du Formatierungsangaben innerhalb der geschweiften Klammern:
 
 ```csharp
 double betrag = 1234.5678;
 
-Console.WriteLine(betrag);              // 1234,5678
-Console.WriteLine("{0:F2}", betrag);    // 1234,57 (2 Nachkommastellen, gerundet)
-Console.WriteLine("{0:F0}", betrag);    // 1235 (keine Nachkommastellen, gerundet)
+Console.WriteLine(betrag);           // 1234,5678
+Console.WriteLine($"{betrag:F2}");   // 1234,57 (2 Nachkommastellen, gerundet)
+Console.WriteLine($"{betrag:F0}");   // 1235 (keine Nachkommastellen, gerundet)
 ```
 
 **Erklärung:**
 
-- `{0}` ist ein Platzhalter für den ersten Wert nach dem Komma
+- `{betrag}` fügt den Wert der Variable ein
+- `{betrag:F2}` formatiert mit 2 Dezimalstellen
 - `:F2` bedeutet "Fixed-Point mit 2 Dezimalstellen"
 - Die Zahl wird automatisch gerundet
 
 ## Tabellarische Ausgabe
 
-Für eine saubere Tabellenausgabe kannst du Tabulatoren (`\t`) und Formatierungsbreiten verwenden:
+Für eine saubere Tabellenausgabe kannst du Tabulatoren (`\t`) verwenden:
 
 ```csharp
-// Mit Tabulatoren
-Console.WriteLine("Jahr\tZinsen\tKapital");
-Console.WriteLine("1\t50,00\t1050,00");
+int jahr = 1;
+double zinsen = 50.0;
+double kapital = 1050.0;
 
-// Mit fester Breite (rechtsbündig)
-Console.WriteLine("{0,6}{1,10}{2,12}", "Jahr", "Zinsen", "Kapital");
-Console.WriteLine("{0,6}{1,10:F2}{2,12:F2}", 1, 50.0, 1050.0);
+// Mit Tabulatoren
+Console.WriteLine("Jahr\tZinsen\t\tKapital");
+Console.WriteLine($"{jahr}\t{zinsen:F2}\t\t{kapital:F2}");
 ```
 
 **Erklärung:**
 
 - `\t` fügt einen Tabulator ein (fester Abstand)
-- `{0,6}` bedeutet: erste Variable, 6 Zeichen breit (rechtsbündig)
-- `{1,10:F2}` bedeutet: zweite Variable, 10 Zeichen breit, 2 Dezimalstellen
+- `{zinsen:F2}` formatiert die Zinsen mit 2 Dezimalstellen
+- Mehrere `\t` hintereinander erzeugen größere Abstände
 
 ## Anforderungen
 
@@ -120,7 +135,7 @@ double startkapital = kapital;  // Merke dir das Startkapital für die Zusammenf
 Console.WriteLine();  // Leerzeile
 
 // Aufgabe 2 & 3: Tabelle ausgeben
-Console.WriteLine("{0,6}{1,12}{2,14}", "Jahr", "Zinsen", "Kapital");
+Console.WriteLine("Jahr\tZinsen\t\tKapital");
 Console.WriteLine(new string('-', 32));  // Trennlinie
 
 // TODO: Implementiere die for-Schleife für die Jahresberechnung
@@ -133,15 +148,15 @@ Console.WriteLine(new string('-', 32));  // Trennlinie
 //     // kapital = ...
 //
 //     // Gib die Tabellenzeile aus
-//     // Console.WriteLine("{0,6}{1,12:F2}{2,14:F2}", jahr, zinsen, kapital);
+//     // Console.WriteLine($"{jahr}\t{zinsen:F2}\t\t{kapital:F2}");
 // }
 
 Console.WriteLine();  // Leerzeile
 
 // Aufgabe 4: Zusammenfassung
 double gewinn = kapital - startkapital;
-Console.WriteLine("Endkapital nach {0} Jahren: {1:F2}", jahre, kapital);
-Console.WriteLine("Gesamtgewinn: {0:F2}", gewinn);
+Console.WriteLine($"Endkapital nach {jahre} Jahren: {kapital:F2}");
+Console.WriteLine($"Gesamtgewinn: {gewinn:F2}");
 ```
 
 ## Beispielausgabe
@@ -155,13 +170,13 @@ Startkapital: 1000
 Zinssatz in %: 5
 Anzahl Jahre: 5
 
-  Jahr      Zinsen       Kapital
+Jahr    Zinsen          Kapital
 --------------------------------
-     1       50,00       1050,00
-     2       52,50       1102,50
-     3       55,13       1157,63
-     4       57,88       1215,51
-     5       60,78       1276,28
+1       50,00           1050,00
+2       52,50           1102,50
+3       55,13           1157,63
+4       57,88           1215,51
+5       60,78           1276,28
 
 Endkapital nach 5 Jahren: 1276,28
 Gesamtgewinn: 276,28
