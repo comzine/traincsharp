@@ -9,6 +9,7 @@
 - [ForLoops (`for`-loop)](./ForLoops)
 - [InterestCalc (`for`-loop)](./InterestCalc)
 - [EvenNumbersSum (`for`-loop, `modulo`)](./EvenNumbersSum)
+- [DiceRoller (`for`-loop, `Random`, `modulo`)](./DiceRoller)
 - [Einmaleins (nested `for`-loop)](./Einmaleins)
 - [GuessNumber (`while`-loop)](./GuessNumber)
 - [CalcTraining (`switch`-case)](./CalcTraining)
