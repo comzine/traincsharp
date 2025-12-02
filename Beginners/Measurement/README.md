@@ -69,6 +69,22 @@ Average value: 7.5
 - Bei der Ausgabe muss zu den Monats- und Tagesindizes 1 addiert werden
 - Verwende `GetLength()`-Methode für die Array-Dimensionen in den Schleifen
 
+## Hilfestellungen
+
+Kommst du nicht weiter? Nutze die Hints schrittweise – versuche erst den nächsten Hint, bevor du weiterspringst:
+
+1. [💡 Hint 1: Erste Orientierung](./HINT-1.md) – Was muss ich tun?
+2. [💡 Hint 2: Technische Details](./HINT-2.md) – Wie funktioniert das?
+3. [💡 Hint 3: Code-Beispiele](./HINT-3.md) – Zeig mir ähnlichen Code
+4. [💡 Hint 4: Lösungsansatz](./HINT-4.md) – Fast die Lösung ⚠️
+
+## Grundlagen wiederholen
+
+Unsicher bei den Basics? Hier nachlesen:
+
+- [📚 Arrays in C#](./BASICS-ARRAYS.md) – 1D, 2D, 3D Arrays erklärt
+- [📚 Schleifen in C#](./BASICS-LOOPS.md) – for-Schleifen und Verschachtelung
+
 ## Zusatzaufgaben
 
 - Erweitere das Programm um die Ausgabe der Durchschnittswerte pro Tag
