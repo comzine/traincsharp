@@ -20,6 +20,10 @@ Der Ausdruck unter der Wurzel (b² - 4ac) wird **Diskriminante** genannt und bes
 - **Diskriminante = 0**: Eine Lösung (Doppellösung)
 - **Diskriminante < 0**: Keine reellen Lösungen (nur komplexe Lösungen, die in dieser Übung nicht behandelt werden)
 
+## Struktogramm
+
+![Nassi-Shneiderman Struktogramm](structogram.png)
+
 ## Anforderungen
 
 1. **Eingabe der Koeffizienten**: Fordere den Benutzer auf, die Werte für a, b und c einzugeben.

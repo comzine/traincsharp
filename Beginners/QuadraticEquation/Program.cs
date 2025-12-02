@@ -8,16 +8,16 @@ class Program
 
         // Eingabe der Koeffizienten
         Console.Write("Gib den Wert für a ein: ");
-        string inputA = Console.ReadLine();
-        double a = Convert.ToDouble(inputA);
+        string input = Console.ReadLine();
+        double a = Convert.ToDouble(input);
 
         Console.Write("Gib den Wert für b ein: ");
-        string inputB = Console.ReadLine();
-        double b = Convert.ToDouble(inputB);
+        input = Console.ReadLine();
+        double b = Convert.ToDouble(input);
 
         Console.Write("Gib den Wert für c ein: ");
-        string inputC = Console.ReadLine();
-        double c = Convert.ToDouble(inputC);
+        input = Console.ReadLine();
+        double c = Convert.ToDouble(input);
 
         Console.WriteLine();
 

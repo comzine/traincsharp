@@ -1,0 +1,31 @@
+\documentclass[border=5mm]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{struktex}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{struktogramm}(130,100)[Quadratische Gleichung lösen]
+    \assign{Eingabe: $a$, $b$, $c$}
+    \ifthenelse{2}{6}{$a = 0$}{Ja}{Nein}
+        \assign{Fehler: keine\\quadratische Gleichung}
+    \change
+        \assign{$D \gets b^2 - 4ac$}
+        \ifthenelse{2}{5}{$D < 0$}{Ja}{Nein}
+            \assign{Ausgabe:\\Keine reellen Lösungen}
+        \change
+            \ifthenelse{4}{4}{$D = 0$}{Ja}{Nein}
+                \assign{$x \gets -b/(2a)$}
+                \assign{Ausgabe: Eine Lösung $x$}
+            \change
+                \assign{$x_1 \gets (-b+\sqrt{D})/(2a)$}
+                \assign{$x_2 \gets (-b-\sqrt{D})/(2a)$}
+                \assign{Ausgabe: $x_1$, $x_2$}
+            \ifend
+        \ifend
+    \ifend
+\end{struktogramm}
+
+\end{document}
