@@ -6,6 +6,7 @@
 - [VerifyAge (`if`-condition)](./VerifyAge)
 - [LeapYear (`if`-condition)](./LeapYear)
 - [QuadraticEquation (`double`, `if`-condition, `Math.Sqrt`)](./QuadraticEquation)
+- [TempConvertNoLoop (`switch`-case, `if`-else)](./TempConvertNoLoop)
 - [EasterCalculator](./EasterCalculator)
 - [ForLoops (`for`-loop)](./ForLoops)
 - [InterestCalc (`for`-loop)](./InterestCalc)
