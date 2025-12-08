@@ -1,13 +1,31 @@
-﻿System.Console.WriteLine("Einmaleins");
-int maxZahl;
-System.Console.Write("Bitte geben Sie die maximale Zahl ein: ");
-maxZahl = Convert.ToInt32(System.Console.ReadLine());
-for (int j = 1; j <= maxZahl; j++)
+namespace Einmaleins
 {
-    for (int i = j; i <= j * maxZahl; i += j)
+    class Program
     {
-        Console.Write("{0,4}", i);
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Das Einmaleins ===\n");
+
+            // Schritt 1: Maximale Zahl erfragen
+            Console.Write("Bis zu welcher Zahl soll das Einmaleins gehen? ");
+            string eingabe = Console.ReadLine();
+            int maxZahl = Convert.ToInt32(eingabe);
+
+            Console.WriteLine(); // Leerzeile
+
+            // Schritt 2: Einmaleins mit verschachtelten Schleifen ausgeben
+            for (int zeile = 1; zeile <= maxZahl; zeile++)
+            {
+                for (int spalte = 1; spalte <= maxZahl; spalte++)
+                {
+                    int produkt = zeile * spalte;
+                    Console.Write("{0,4}", produkt);
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("\nDrücke eine Taste zum Beenden...");
+            Console.ReadKey();
+        }
     }
-    Console.WriteLine();
 }
-Console.ReadKey();
