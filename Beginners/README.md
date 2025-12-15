@@ -13,7 +13,7 @@
 - [EvenNumbersSum (`for`-loop, `modulo`)](./EvenNumbersSum)
 - [DiceRoller (`for`-loop, `Random`, `modulo`)](./DiceRoller)
 - [Einmaleins (nested `for`-loop)](./Einmaleins)
-- [Weihnachtsbaum (nested `for`-loop, ASCII art)](./Weihnachtsbaum)
+- [ChristmasTree (nested `for`-loop, ASCII art)](./ChristmasTree)
 - [GuessNumber (`while`-loop)](./GuessNumber)
 - [CalcTraining (`switch`-case)](./CalcTraining)
 - [GradeConvert (`switch`-case`)](./GradeConvert)

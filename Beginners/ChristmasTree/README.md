@@ -15,7 +15,7 @@ In dieser Übung wirst du einen ASCII-Weihnachtsbaum mit verschachtelten `for`-S
 
 Ein Weihnachtsbaum mit einer Baumkrone der Höhe 5 sieht so aus:
 
-```
+```text
     *
    ***
   *****
@@ -26,6 +26,7 @@ Ein Weihnachtsbaum mit einer Baumkrone der Höhe 5 sieht so aus:
 ```
 
 **Aufbau:**
+
 - **Krone:** Die Krone besteht aus mehreren Zeilen. Jede Zeile hat:
   - Führende Leerzeichen (für die Zentrierung)
   - Sterne (`*`)
@@ -34,6 +35,7 @@ Ein Weihnachtsbaum mit einer Baumkrone der Höhe 5 sieht so aus:
 ## Die Mathematik hinter dem Baum
 
 ### Krone
+
 Für eine Krone der Höhe `h` gilt für jede Zeile `i` (von 0 bis h-1):
 
 - **Anzahl der Leerzeichen:** `h - i - 1`
@@ -50,7 +52,9 @@ Für eine Krone der Höhe `h` gilt für jede Zeile `i` (von 0 bis h-1):
 | 4         | 0           | 9      | `*********`  |
 
 ### Stamm
+
 Der Stamm ist immer gleich:
+
 - **Leerzeichen:** `h - 2` (damit er zentriert unter der Krone steht)
 - **Rauten:** `3` (immer `###`)
 - **Zeilen:** `2` (immer 2 Zeilen hoch)
@@ -59,26 +63,29 @@ Der Stamm ist immer gleich:
 
 Erstelle ein Programm, das einen ASCII-Weihnachtsbaum zeichnet:
 
-### 1. **Begrüßung und Höhe erfragen**
-   - Begrüße den Benutzer mit einer passenden Nachricht.
-   - Frage nach der Höhe der Baumkrone (z.B. 5 für das Beispiel oben).
-   - Verwende `Console.ReadLine()` und `Convert.ToInt32()` für die Eingabe.
+### 1. Begrüßung und Höhe erfragen
 
-### 2. **Baumkrone zeichnen**
-   - Verwende eine `for`-Schleife für jede Zeile der Krone (von 0 bis Höhe-1).
-   - Für jede Zeile:
-     - Berechne die Anzahl der Leerzeichen: `hoehe - i - 1`
-     - Gib die Leerzeichen aus (mit einer inneren `for`-Schleife oder Stringwiederholung)
-     - Berechne die Anzahl der Sterne: `2 * i + 1`
-     - Gib die Sterne aus (mit einer inneren `for`-Schleife oder Stringwiederholung)
-     - Mache einen Zeilenumbruch mit `Console.WriteLine()`
+- Begrüße den Benutzer mit einer passenden Nachricht.
+- Frage nach der Höhe der Baumkrone (z.B. 5 für das Beispiel oben).
+- Verwende `Console.ReadLine()` und `Convert.ToInt32()` für die Eingabe.
 
-### 3. **Baumstamm zeichnen**
-   - Der Stamm ist immer 2 Zeilen hoch.
-   - Jede Zeile des Stamms hat:
-     - Leerzeichen zur Zentrierung: `hoehe - 2`
-     - Drei Rauten: `###`
-   - Verwende eine `for`-Schleife, um die 2 Zeilen zu zeichnen.
+### 2. Baumkrone zeichnen
+
+- Verwende eine `for`-Schleife für jede Zeile der Krone (von 0 bis Höhe-1).
+- Für jede Zeile:
+  - Berechne die Anzahl der Leerzeichen: `height - i - 1`
+  - Gib die Leerzeichen aus (mit einer inneren `for`-Schleife oder Stringwiederholung)
+  - Berechne die Anzahl der Sterne: `2 * i + 1`
+  - Gib die Sterne aus (mit einer inneren `for`-Schleife oder Stringwiederholung)
+  - Mache einen Zeilenumbruch mit `Console.WriteLine()`
+
+### 3. Baumstamm zeichnen
+
+- Der Stamm ist immer 2 Zeilen hoch.
+- Jede Zeile des Stamms hat:
+  - Leerzeichen zur Zentrierung: `height - 2`
+  - Drei Rauten: `###`
+- Verwende eine `for`-Schleife, um die 2 Zeilen zu zeichnen.
 
 ## Code-Beispiele
 
@@ -94,26 +101,27 @@ Console.WriteLine(); // Zeilenumbruch
 ```
 
 Dies gibt aus:
-```
+
+```text
 *****
 ```
 
 ### Eine vollständige Zeile der Krone
 
 ```csharp
-int hoehe = 5;
+int height = 5;
 int i = 2; // Beispiel: Zeile 2
 
 // Leerzeichen ausgeben
-int anzahlLeerzeichen = hoehe - i - 1;
-for (int j = 0; j < anzahlLeerzeichen; j++)
+int spaceCount = height - i - 1;
+for (int j = 0; j < spaceCount; j++)
 {
     Console.Write(" ");
 }
 
 // Sterne ausgeben
-int anzahlSterne = 2 * i + 1;
-for (int j = 0; j < anzahlSterne; j++)
+int starCount = 2 * i + 1;
+for (int j = 0; j < starCount; j++)
 {
     Console.Write("*");
 }
@@ -122,7 +130,8 @@ Console.WriteLine(); // Zeilenumbruch
 ```
 
 Dies gibt aus:
-```
+
+```text
   *****
 ```
 
@@ -130,9 +139,9 @@ Dies gibt aus:
 
 - Verwende `Console.Write()` für Zeichen ohne Zeilenumbruch und `Console.WriteLine()` für den Zeilenumbruch am Ende einer Zeile.
 - Die Formeln sind wichtig:
-  - Leerzeichen Krone: `hoehe - i - 1`
+  - Leerzeichen Krone: `height - i - 1`
   - Sterne: `2 * i + 1`
-  - Leerzeichen Stamm: `hoehe - 2`
+  - Leerzeichen Stamm: `height - 2`
 - Du brauchst insgesamt 3 Schleifen:
   1. Äußere Schleife für die Zeilen der Krone
   2. Äußere Schleife für die Zeilen des Stamms
