@@ -147,10 +147,74 @@ Dies gibt aus:
   2. Äußere Schleife für die Zeilen des Stamms
   3. Innere Schleifen für das Wiederholen von Leerzeichen und Sternen/Rauten
 
-## Optional
+## Bonusaufgabe ⭐
 
-- **Weihnachtskugeln:** Ersetze zufällige Sterne in der Krone durch `O` (Kugeln).
+Erweitere den Baum um abwechselnde Kugeln `o` in jeder zweiten Zeile:
+
+```text
+    *
+   *o*
+  *****
+ **o*o**
+*********
+   ###
+   ###
+```
+
+### Analyse des Musters
+
+| Zeile (i) | Hat Kugeln? | Zeichen             | Kugel-Positionen (j) |
+|-----------|-------------|---------------------|----------------------|
+| 0         | Nein        | `*`                 | -                    |
+| 1         | Ja          | `*o*`               | 1                    |
+| 2         | Nein        | `*****`             | -                    |
+| 3         | Ja          | `**o*o**`           | 2, 4                 |
+| 4         | Nein        | `*********`         | -                    |
+
+### Die Logik
+
+1. **Welche Zeilen haben Kugeln?**
+   - Nur ungerade Zeilen: `i % 2 == 1`
+
+2. **Welche Positionen in der Zeile sind Kugeln?**
+   - Nur ungerade Positionen: `j % 2 == 1`
+
+### Hinweis zur Umsetzung
+
+Innerhalb der Stern-Schleife musst du entscheiden, ob du `*` oder `o` ausgibst:
+
+```csharp
+for (int j = 0; j < starCount; j++)
+{
+    // Prüfen: Ist diese Zeile eine "Kugel-Zeile" UND ist diese Position eine "Kugel-Position"?
+    if (i % 2 == 1 && j % 2 == 1)
+    {
+        Console.Write("o");
+    }
+    else
+    {
+        Console.Write("*");
+    }
+}
+```
+
+### Denkaufgabe 🤔
+
+Warum funktioniert `j % 2 == 1` für die Kugel-Positionen?
+
+Schau dir Zeile 3 an: `**o*o**` hat 7 Zeichen (j = 0 bis 6).
+- j=0: `*` (gerade)
+- j=1: `*` (ungerade, aber...)
+- j=2: `o` (gerade? 🤔)
+
+**Tipp:** Die Kugeln erscheinen nicht an den Positionen 1, 3, 5... sondern an 2, 4, 6... Das Muster ist also `j % 2 == 0` für j > 0, oder einfacher: `j > 0 && j % 2 == 0`.
+
+Alternativ kannst du auch überlegen: Die Kugeln sind immer "jedes zweite Zeichen, aber nicht am Rand". Finde selbst die beste Lösung!
+
+## Weitere Ideen
+
 - **Mehrfarbig:** Verwende `Console.ForegroundColor`, um die Krone grün und die Kugeln rot zu färben.
 - **Mehrere Bäume:** Zeichne mehrere Bäume nebeneinander.
 - **Spitze mit anderem Zeichen:** Verwende für die oberste Spitze ein anderes Zeichen, z.B. `+` statt `*`.
 - **Variabler Stamm:** Lass den Benutzer auch die Höhe des Stamms eingeben.
+- **Zufällige Kugeln:** Verwende `Random`, um Kugeln zufällig zu platzieren.
